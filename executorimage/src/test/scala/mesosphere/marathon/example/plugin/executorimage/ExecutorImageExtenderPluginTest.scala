@@ -1,11 +1,11 @@
-package mesosphere.marathon.example.plugin.executorid
+package mesosphere.marathon.example.plugin.executorimage
 
 import com.typesafe.scalalogging.StrictLogging
 import org.apache.mesos.Protos.Environment.Variable
 import org.apache.mesos.Protos._
 import org.scalatest.{GivenWhenThen, Matchers, WordSpec}
 
-class ExecutorIdExtenderPluginTest extends WordSpec with Matchers with GivenWhenThen with StrictLogging {
+class ExecutorImageExtenderPluginTest extends WordSpec with Matchers with GivenWhenThen with StrictLogging {
 
   "Given an MARATHON_EXECUTOR_ID label an executorID should be injected" in {
     val f = new Fixture
@@ -64,6 +64,6 @@ class ExecutorIdExtenderPluginTest extends WordSpec with Matchers with GivenWhen
   }
 
   class Fixture {
-    val plugin = new ExecutorIdExtenderPlugin()
+    val plugin = new ExecutorImageExtenderPlugin()
   }
 }
