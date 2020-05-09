@@ -8,26 +8,8 @@ scalaVersion in Global := "2.12.7"
 resolvers += Resolver.sonatypeRepo("releases")
 
 lazy val plugins = project.in(file("."))
-  .aggregate(auth, javaauth, http, env, label, executorid,executorimage)
-  .dependsOn(auth)
-  .dependsOn(javaauth)
-  .dependsOn(http)
-  .dependsOn(env)
-  .dependsOn(label)
-  .dependsOn(executorid)
+  .aggregate(executorimage)
   .dependsOn(executorimage)
-
-lazy val auth = project
-
-lazy val javaauth = project
-
-lazy val http = project
-
-lazy val env = project
-
-lazy val label = project
-
-lazy val executorid = project
 
 lazy val executorimage = project
 
