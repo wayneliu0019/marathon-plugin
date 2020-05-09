@@ -1,0 +1,10 @@
+{
+  "plugins": {
+    "executorImageExtender": {
+      "plugin": "mesosphere.marathon.plugin.task.RunSpecTaskProcessor",
+      "implementation": "mesosphere.marathon.example.plugin.executorimage.ExecutorImageExtenderPlugin",
+      "configuration": {
+      }
+    }
+  }
+}
