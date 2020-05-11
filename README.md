@@ -17,3 +17,5 @@ This directory can be used directly as plugin directory for Marathon.
 2. Locate the Plugin configuration file (look at the Plugin's README.md for a hint)).
 3. Start Marathon with the following flags: `--plugin_dir target/pack/lib --plugin_conf <path_to_the_plugin_config_file>`
 
+# References (mesos proto)
+http://mesos.apache.org/api/latest/java/org/apache/mesos/Protos.TaskInfo.html
