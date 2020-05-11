@@ -13,20 +13,33 @@ class ExecutorImageExtenderPlugin extends RunSpecTaskProcessor with PluginConfig
 
   override def taskInfo(appSpec: ApplicationSpec, builder: TaskInfo.Builder): Unit = {
 
+     logger.info(s"before --- taskinfo marathon build is ${builder.build}")
+
     // If custom executor is used and container(or image) is specified
     if (builder.hasExecutor && builder.getExecutor.hasContainer) {
 
-      val container = builder.getExecutorBuilder.getContainerBuilder
+      var executor = builder.getExecutorBuilder
 
+      //
+      val container = executor.getContainerBuilder
       //if taskinfo.container is not set, set it with executorinfo.container
       if (!builder.hasContainer){
          builder.setContainer(container)
       }
 
+      //set commandInfo {shell:true}
+      //if not, the deploy will faile if json's "cmd" is nil
+      var command = executor.getCommandBuilder
+      command.setShell(true)
+
+
       //clear executorinfo's containerinfo
       builder.getExecutorBuilder.clearContainer
       
     }
+
+   logger.info(s"after --- taskinfo marathon build is ${builder.build}")
+
   }
 
   override def taskGroup(podSpec: PodSpec, executor: ExecutorInfo.Builder, taskGroup: TaskGroupInfo.Builder): Unit = {}
